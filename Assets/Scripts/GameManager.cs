@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour
         disappearers = FindObjectsByType<Disappearer>(FindObjectsSortMode.None);
         StartCoroutine(HideObjectsTimer());
     }
-    //TODO: Switch Objects Off
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R)) Reload();
+    }
     public void SetObjectState(bool state)
     {
         foreach (Disappearer disappearer in disappearers) disappearer.ObjectActivation(state);
@@ -32,15 +35,13 @@ public class GameManager : MonoBehaviour
     public void LoadNewScene(int buildIndex)
     {
         SceneManager.LoadScene(buildIndex);
-        disappearers = FindObjectsByType<Disappearer>(FindObjectsSortMode.None);
-        StartCoroutine(HideObjectsTimer());
+        //disappearers = FindObjectsByType<Disappearer>(FindObjectsSortMode.None);
+        //StartCoroutine(HideObjectsTimer());
     }
-    //TODO: Load Next Scene
     public void LoadNextScene()
     {
         LoadNewScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    //TODO: Reload Current Scene
     public void Reload()
     {
         LoadNewScene(SceneManager.GetActiveScene().buildIndex);
