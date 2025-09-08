@@ -5,7 +5,7 @@ using UnityEngine;
 public class DeathZone : MonoBehaviour
 {
     private float reloadDelay = 1.5f;
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         PlayerMovement player = other.gameObject.GetComponent<PlayerMovement>();
         if (player != null)
