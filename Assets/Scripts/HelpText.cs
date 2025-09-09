@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class HelpText : MonoBehaviour
 {
+    //Singleton set up, makes sure the object is persistent between scenes and destroys any duplicates
     public static HelpText Instance { get; private set; }
 
     private void Awake()
@@ -20,6 +21,7 @@ public class HelpText : MonoBehaviour
 
     private void FixedUpdate()
     {
+        //Toggle to enable/disable text
         if (Input.GetKeyDown(KeyCode.T))
         {
             GetComponentInChildren<TextMeshProUGUI>().enabled = !GetComponentInChildren<TextMeshProUGUI>().enabled;
